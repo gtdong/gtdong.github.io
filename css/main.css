@@ -186,7 +186,7 @@ body {
   line-height: 2;
   min-height: 100%;
   position: relative;
-  transition: padding 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 h1,
 h2,
@@ -669,6 +669,9 @@ pre code {
   transform: translate(0.2rem, 0.2rem);
 }
 .post-body .link-grid .link-grid-container .link-grid-image {
+  background-clip: content-box;
+  background-origin: content-box;
+  background-size: cover;
   border: 1px solid #ddd;
   border-radius: 50%;
   box-sizing: border-box;
@@ -1236,17 +1239,11 @@ pre code {
 }
 @media (max-width: 767px) {
   .site-nav {
-    --scroll-height: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.2s ease-in-out;
+    display: none;
   }
-  body:not(.site-nav-on) .site-nav .animated {
-    animation: none;
-  }
-  body.site-nav-on .site-nav {
-    height: var(--scroll-height);
-  }
+}
+.site-nav-on .site-nav {
+  display: block;
 }
 .menu {
   margin: 0;
@@ -1754,6 +1751,9 @@ pre code {
 .back-to-top {
   font-size: 12px;
 }
+.back-to-top span {
+  display: none;
+}
 .back-to-top {
   bottom: -100px;
   box-sizing: border-box;
@@ -1766,6 +1766,7 @@ pre code {
   position: fixed;
   z-index: 1300;
   right: 30px;
+  width: 24px;
 }
 @media (max-width: 991px) {
   .back-to-top {
@@ -2270,6 +2271,10 @@ pre code {
 .post-reward div span {
   display: block;
 }
+.post-reward div:hover span {
+  animation: next-roll 0.1s infinite linear;
+  pointer-events: none;
+}
 .post-reward img {
   display: inline-block;
   margin: 0.8em 2em 0;
@@ -2728,16 +2733,7 @@ mark.search-keyword {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {
-    --scroll-height: 0;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.2s ease-in-out;
-  }
-  body:not(.site-nav-on) .site-nav .animated {
-    animation: none;
-  }
-  body.site-nav-on .site-nav {
-    height: var(--scroll-height);
+    display: none;
   }
 }
 .menu .menu-item {
