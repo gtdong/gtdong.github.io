@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/gtdong/images/main/blogimage-20220501175617949.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/gtdong/images/main/blogimage-20220501175642680.png">
 <meta property="article:published_time" content="2022-04-30T05:05:00.000Z">
-<meta property="article:modified_time" content="2022-05-01T15:06:32.189Z">
+<meta property="article:modified_time" content="2022-05-01T15:14:15.318Z">
 <meta property="article:author" content="Michaeldong">
 <meta property="article:tag" content="K8s">
 <meta property="article:tag" content="云原生">
@@ -290,7 +290,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-01 23:06:32" itemprop="dateModified" datetime="2022-05-01T23:06:32+08:00">2022-05-01</time>
+      <time title="修改时间：2022-05-01 23:14:15" itemprop="dateModified" datetime="2022-05-01T23:14:15+08:00">2022-05-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -661,8 +661,6 @@
 <p>构建参数，与 ENV 作用一至。不过作用域不一样。ARG 设置的环境变量仅对 Dockerfile 内有效，也就</p>
 <p>是说只有 docker build 的过程中有效，构建好的镜像内不存在此环境变量。</p>
 <p>构建命令 docker build 中可以用 –build-arg &lt;参数名&gt;=&lt;值&gt; 来覆盖。</p>
-<p>版权声明，本文档全部内容及版权归韩先超所有，只可用于自己学习使用，禁止私自传阅，违者依法</p>
-<p>追责。韩先超老师微信：luckylucky421302</p>
 <p>格式：</p>
 <p>ARG &lt;参数名&gt;[=&lt;默认值&gt;]</p>
 <h2 id="10、dockerfile-构建-nginx-镜像"><a href="#10、dockerfile-构建-nginx-镜像" class="headerlink" title="10、dockerfile 构建 nginx 镜像"></a>10、dockerfile 构建 nginx 镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir dockerfile</span><br><span class="line">cd dockerfile/</span><br><span class="line">vim dockerfile</span><br></pre></td></tr></table></figure>
@@ -979,9 +977,7 @@
 <h4 id="17-1-3-CPU-配额控制参数的混合使用"><a href="#17-1-3-CPU-配额控制参数的混合使用" class="headerlink" title="17.1.3 CPU 配额控制参数的混合使用"></a>17.1.3 CPU 配额控制参数的混合使用</h4><p>在上面这些参数中，cpu-shares 控制只发生在容器竞争同一个 cpu 的时间片时有效。</p>
 <p>如果通过 cpuset-cpus 指定容器 A 使用 cpu 0，容器 B 只是用 cpu1，在主机上只有这两个容器使用</p>
 <p>对应内核的情况，它们各自占用全部的内核资源，cpu-shares 没有明显效果。</p>
-<p>如何才能有效果？韩先超老师微信：luckylucky421302</p>
-<p>版权声明，本文档全部内容及版权归韩先超所有，只可用于自己学习使用，禁止私自传阅，违者依法</p>
-<p>追责。</p>
+<p>如何才能有效果？</p>
 <p>容器 A 和容器 B 配置上 cpuset-cpus 值并都绑定到同一个 cpu 上，然后同时抢占 cpu 资源，就可以</p>
 <p>看出效果了。</p>
 <p>例 1：测试 cpu-shares 和 cpuset-cpus 混合使用运行效果，就需要一个压缩力测试工具 stress 来让</p>
@@ -1094,7 +1090,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xianchaomaster1 ~]# docker ps -a | grep xianchao</span><br></pre></td></tr></table></figure>
 
 <p>6c75a9317a6b centos “sleep 6” 6 seconds ago Up 4 </p>
-<p>seconds mk韩先超老师微信：luckylucky421302</p>
+<p>seconds mk</p>
 <p>等 5s 后，再查看：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@xianchaomaster1 ~]# docker ps | grep xianchao</span><br></pre></td></tr></table></figure>
 
@@ -1258,7 +1254,7 @@
 <p>如何启动 harbor：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@harbor harbor]# cd /data/install/harbor</span><br><span class="line">[root@harbor harbor]# docker-compose start</span><br></pre></td></tr></table></figure>
 
-<p>如果 docker-compose start 启动 harbor 之后，还是访问不了，那就需要重启虚拟机韩先超老师微信：luckylucky421302</p>
+<p>如果 docker-compose start 启动 harbor 之后，还是访问不了，那就需要重启虚拟机</p>
 <h3 id="18-3-Harbor-图像化界面使用说明"><a href="#18-3-Harbor-图像化界面使用说明" class="headerlink" title="18.3 Harbor 图像化界面使用说明"></a>18.3 Harbor 图像化界面使用说明</h3><p>在浏览器输入：</p>
 <p><a target="_blank" rel="noopener" href="https://harbor/">https://harbor</a></p>
 <p><img src="https://raw.githubusercontent.com/gtdong/images/main/blogimage-20220501175432123.png" alt="image-20220501175432123"></p>
@@ -1271,8 +1267,6 @@
 <p>所有基础镜像都会放在 library 里面，这是一个公开的镜像仓库</p>
 <p>新建项目-&gt;起个项目名字 test（把访问级别公开那个选中，让项目才可以被公开使用）</p>
 <p><img src="https://raw.githubusercontent.com/gtdong/images/main/blogimage-20220501175617949.png" alt="image-20220501175617949"></p>
-<p>版权声明，本文档全部内容及版权归韩先超所有，只可用于自己学习使用，禁止私自传阅，违者依法</p>
-<p>追责。韩先超老师微信：luckylucky421302</p>
 <h3 id="18-4-测试使用-harbor-私有镜像仓库"><a href="#18-4-测试使用-harbor-私有镜像仓库" class="headerlink" title="18.4 测试使用 harbor 私有镜像仓库"></a>18.4 测试使用 harbor 私有镜像仓库</h3><p>#修改 docker 配置</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@xianchaomaster1 ~]# vim /etc/docker/daemon.json</span><br><span class="line"></span><br><span class="line">&#123; &quot;registry-mirrors&quot;: [&quot;https://rsbud4vc.mirror.aliyuncs.com&quot;,&quot;https://registry.docker-cn.com&quot;,&quot;https://docker.mirrors.ustc.edu.cn&quot;,&quot;https://dockerhub.azk8s.cn&quot;,&quot;http://hub-mirror.c.163.com&quot;],</span><br><span class="line">&quot;insecure-registries&quot;: [&quot;192.168.40.181&quot;,&quot;harbor&quot;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1395,7 +1389,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">18:06</span>
+    <span title="站点阅读时长">18:05</span>
   </span>
 </div>
 
